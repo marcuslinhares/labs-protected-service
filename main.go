@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,7 +13,7 @@ func main() {
 	// Define o endpoint protegido
 	// Este endpoint só deve ser alcançado após o forward-auth do Traefik ser bem-sucedido.
 	router.GET("/protected", func(c *gin.Context) {
-		
+
 		// Opcional: Você pode inspecionar os cabeçalhos que o serviço de autenticação
 		// possa ter adicionado à requisição, como um ID de usuário.
 		// Ex: userID := c.GetHeader("X-User-ID")
@@ -23,7 +24,7 @@ func main() {
 		})
 	})
 
-	// Inicia o servidor na porta 8081
+	// Inicia o servidor na porta 8080
 	// É uma boa prática usar uma porta diferente do seu serviço de autenticação.
-	router.Run(":8081")
+	router.Run(":8080")
 }
