@@ -12,12 +12,7 @@ func main() {
 
 	// Define o endpoint protegido
 	// Este endpoint só deve ser alcançado após o forward-auth do Traefik ser bem-sucedido.
-	router.GET("/protected", func(c *gin.Context) {
-
-		// Opcional: Você pode inspecionar os cabeçalhos que o serviço de autenticação
-		// possa ter adicionado à requisição, como um ID de usuário.
-		// Ex: userID := c.GetHeader("X-User-ID")
-
+	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "Acesso concedido ao recurso protegido!",
 			"status":  "success",
